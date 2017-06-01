@@ -1,5 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
-import {HomeComponent} from "./home.component";
+import { MobileComponent } from "./mobile-page/mobile.component";
+import {HomeComponent} from "./home-page/home.component";
 import {ModuleWithProviders} from "@angular/core";
 
 export const homeRoutes: Routes = [
@@ -8,6 +9,13 @@ export const homeRoutes: Routes = [
         component: HomeComponent,
         data: {
             pageTitle: 'Home'
+        }
+    },
+    {
+        path: 'mobile',
+        component: MobileComponent,
+        data: {
+            pageTitle: 'Mobile'
         }
     }
 ];

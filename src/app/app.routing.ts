@@ -22,7 +22,7 @@ export const routes: Routes = [
             },
         ]
     },
-
+    { path: 'auth', component: AuthLayoutComponent, loadChildren: 'app/+auth/auth.module#AuthModule' },
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes, {useHash: true});

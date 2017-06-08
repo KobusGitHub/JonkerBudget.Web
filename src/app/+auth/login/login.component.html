@@ -1,0 +1,55 @@
+<!--<p-growl [value]="msgs"></p-growl>-->
+<div class="animated fadeInDown">
+
+    <div class="col-xs-0 col-sm-2 col-lg-4 col-md-3"></div>
+
+    <div class="col-xs-12 col-sm-8 card col-lg-4 col-md-6 loginCard">
+
+        <div class="logoContainer">
+
+            <img src="assets/img/logo-pale.png" class="loginLogo" />
+            <div class="caret"></div>
+
+        </div>
+        <div role="main" class="loginBody">
+
+            <div id="content">
+                <div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                        <h1>Please sign in below.</h1>
+
+                        <form class="smart-form client-form" [formGroup]="frmLogin">
+
+                            <fieldset>
+
+                                <section>
+                                    <label class="label">Username</label>
+                                    <label class="input"> <i class="icon-append fa fa-user login-icon-append"></i>
+                                      <input class="login-input" type="text" name="userName" data-smart-validate-input="" formControlName="userName" data-required="" data-email="" data-message-required="Please enter your username" data-message-email="Please enter a valid username">
+                                      <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i>Please enter username</b></label>
+                                </section>
+
+                                <section>
+                                    <label class="label">Password</label>
+                                    <label class="input"> <i class="icon-append fa fa-lock login-icon-append"></i>
+                                      <input class="login-input" type="password" name="password" data-smart-validate-input="" formControlName="password" data-required="" data-minlength="3" data-maxnlength="20" data-message="Please enter your email password">
+                                      <b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i>Enter your password</b> </label>
+                                </section>
+
+                            </fieldset>
+
+                            <footer>
+                                <!--<a routerLink="/auth/forgot-password" class="forgotPassowrd">Forgot password?</a>-->
+                                <button (click)="login(frmLogin.value)" class="btn btn-danger">Sign in<i class="glyphicon glyphicon-chevron-right"></i>
+                                </button>
+                            </footer>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

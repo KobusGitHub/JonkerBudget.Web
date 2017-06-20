@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mobile',
@@ -7,67 +8,51 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MobileComponent implements OnInit {
   //private LOGO = require("./assets/under-928246.jpg");
-  constructor() { }
+  constructor(private router: Router) { }
 
-  showImage: boolean = true;
-  showPassword: boolean = false;
   password: string = '';
   wantAndroid = false;
   wantAndroidPro = false;
+  proAccess = false;
 
   ngOnInit() {
-   
+    if (localStorage.getItem('accessToken') === undefined || localStorage.getItem('accessToken') === null) {
+      this.router.navigate(['auth/login']);
+    }
+
+    this.proAccess = false;
+    if (localStorage.getItem('roles').indexOf('Admin') > -1){
+      this.proAccess = true;
+    }
   }
 
   android(){
     this.wantAndroid = true;
     this.wantAndroidPro = false;
-    this.showImage = false;
-    this.showPassword = true;
+    this.download();
   }
 
   androidPro() {
     this.wantAndroid = false;
     this.wantAndroidPro = true;
-    this.showImage = false;
-    this.showPassword = true;
+    this.download();
   }
 
   download(){
-    
-
     if(this.wantAndroid){
-      if(this.password === 'crazyguest'){
-        this.password = '';
-        window.open(
-          'http://www.crazyjonker.co.za/mobileapk/home-budget-offline.apk',
-          '_blank' // <- This is what makes it open in a new window.
-        );
-      
-      } else {
-        this.password = '';
-        alert("Incorrect password")
-      }
+      window.open(
+        'http://www.crazyjonker.co.za/mobileapk/home-budget-offline.apk',
+        '_blank' // <- This is what makes it open in a new window.
+      );
     }
 
     if (this.wantAndroidPro) {
-      if (this.password === 'crazywalle') {
-        this.password = '';
-        window.open(
-          'http://www.crazyjonker.co.za/mobileapk/home-budget-online.apk',
-          '_blank' // <- This is what makes it open in a new window.
-        );
-
-      } else {
-        this.password = '';
-        alert("Incorrect password")
-      }
+      window.open(
+        'http://www.crazyjonker.co.za/mobileapk/home-budget-online.apk',
+        '_blank' // <- This is what makes it open in a new window.
+      );
     }
-
     this.wantAndroid = false;
     this.wantAndroidPro = false;
-    this.showImage = true;
-    this.showPassword = false;
   }
-
 }

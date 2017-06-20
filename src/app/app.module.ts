@@ -5,6 +5,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { DomainModule } from './domain/domain.module';
+
+
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -47,7 +50,7 @@ type StoreType = {
     CoreModule,
     SmartadminLayoutModule,
 
-
+    DomainModule,
 
     routing
   ],

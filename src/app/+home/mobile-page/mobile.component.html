@@ -8,15 +8,9 @@
         <div class="col-sm-12">
            
             <div  class="well">
-                <div style="width: 100%; text-align: center" *ngIf="showImage">
+                <div style="width: 100%; text-align: center">
                     <img style="max-height: 150px; max-width:100%; text-align: center" src="assets/img/android-phone-color.png" title="Android Home Budget App" (click)="android()">
-                    <img style="max-height: 150px; max-width:100%; text-align: center" src="assets/img/android-phone-color-pro.png" title="Android Home Budget Pro App" (click)="androidPro()">                    
-                </div>
-                
-
-                <div style="width: 100%; text-align: center" *ngIf="showPassword">
-                    <input type="password" style="height: 32px; margin-top: 15px; margin-right:5px;" placeholder="Password" [(ngModel)]="password" />
-                    <button type="button" style="margin-top:-4px;" class="btn btn-raised btn-primary" (click)="download()">Download</button>                    
+                    <img style="max-height: 150px; max-width:100%; text-align: center" *ngIf="proAccess" src="assets/img/android-phone-color-pro.png" title="Android Home Budget Pro App" (click)="androidPro()">                    
                 </div>
             </div>
         </div>
